@@ -1,0 +1,29 @@
+advantages of java 
+*simple
+*portable
+*reusability
+*object oriented
+*Platform independant 
+*built in multithreading
+
+
+
+
+2,progaram to print student details 
+
+public class main{
+public static void main(string[] args) {
+ string studentName= "joe";
+int rollnumber=24;
+string course ="computer science";
+double gpa = 3.85;
+
+system.out.println("-------STUDENT DETAILS-------");
+system.out.println("Name: "studentName);
+system.out.println("Roll Number: " +rollnumber);
+system.out.println("Course: "+ course);
+system.out.println("GPA: "gpa);
+system.out.println("---------------------------");
+
+}
+}
