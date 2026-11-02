@@ -1,0 +1,41 @@
+Write a program to handle Array related exception
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.chromeDriver;
+import java.util.List;
+public class ArrayExceptionHandle {
+public static void main(String[] args){
+webDriver driver = new ChromeDriver();
+driver.get("https://ebank.com");
+try{
+List<WebElement> links = driver.findElements(By.tagName("a"));
+WebElent invalidLink = links.get(500);
+system.out.println(invalidLink.getText());
+}catch(IndexOutBoundsException e) {
+system.out.println("Error: you tried to access an index that does not exist!");
+system.out.println("Exception message: " e.getMessage());
+}finally {
+driver.quit();
+} 
+
+2. Write a program to store List of String values and display,
+
+improt java.util.ArrayList;
+improt java.util.List;
+
+public class main {
+public static void main(string[] args) {
+List<String> fruits = new ArrayList<>();
+fruits.add("Apple");
+fruits.add("banana");
+
+system.out.println("List of fruits:");
+for(String fruits : fruits) {
+system.out.println(fruit);
+}
+}
+}
+
