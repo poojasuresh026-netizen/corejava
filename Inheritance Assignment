@@ -1,0 +1,35 @@
+Inheritance Assignment
+
+Program:
+
+class Animal {
+
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+
+    void sleep() {
+        System.out.println("Animal is sleeping");
+    }
+
+    void walk() {
+        System.out.println("Animal is walking");
+    }
+}
+class Cat extends Animal {
+
+    public static void main(String[] args) {
+
+        Cat c = new Cat();
+
+        c.sound();
+        c.sleep();
+        c.walk();
+    }
+}
+output:
+Animal makes a sound
+Animal is sleeping
+Animal is walking
+
+
