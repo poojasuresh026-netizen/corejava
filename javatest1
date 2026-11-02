@@ -1,0 +1,83 @@
+Java Test 1
+Write a program to find largest of 3 numbers using conditional statement : int a=10; int b=30; int c=5;
+
+Write a program to print the designation based on salary: input can be 10000,20000,30000
+
+Using switch statement:
+
+10000 -> Engineer
+
+20000 -> Lead
+
+30000 -> Manager
+
+Other values -> Not matching
+
+1. Write a Java program to find the largest of 3 numbers using conditional statements.
+Program:
+  class Main {
+    public static void main(String[] args) {
+
+        int a = 10;
+        int b = 30;
+        int c = 5;
+
+        if (a > b && a > c) {
+            System.out.println("Largest number is: " + a);
+        }
+        else if (b > a && b > c) {
+            System.out.println("Largest number is: " + b);
+        }
+        else {
+            System.out.println("Largest number is: " + c);
+        }
+    }
+}
+output:
+Largest number is: 30
+
+  2. Write a Java program to print the designation based on salary using switch statement.
+Program:
+  import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter salary: ");
+        int salary = sc.nextInt();
+
+        switch (salary) {
+
+            case 10000:
+                System.out.println("Engineer");
+                break;
+
+            case 20000:
+                System.out.println("Lead");
+                break;
+
+            case 30000:
+                System.out.println("Manager");
+                break;
+
+            default:
+                System.out.println("Not matching");
+        }
+
+        sc.close();
+    }
+}
+output1:
+Enter salary: 10000
+Engineer
+output2:
+  Enter salary: 20000
+Lead
+  output3:
+Enter salary: 30000
+Manager
+  output4:
+Enter salary: 50000
+Not matching
