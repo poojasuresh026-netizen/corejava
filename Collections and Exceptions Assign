@@ -1,0 +1,66 @@
+1. What is an Exception? Write a program for Exception Handling.
+Definition:
+
+An exception is an unwanted or unexpected event that occurs during program execution and interrupts the normal flow of the program.
+
+Exception handling is used to handle runtime errors using keywords like try, catch, and finally.
+
+Java Program:
+class Main {
+    public static void main(String[] args) {
+
+        try {
+            int a = 10;
+            int b = 0;
+
+            int result = a / b;
+
+            System.out.println("Result: " + result);
+        }
+        catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero");
+        }
+
+        System.out.println("Program continues...");
+    }
+
+output
+Cannot divide by zero
+Program continues...
+
+2. What is Collections? Write a program to remove duplicate names using Collections.
+Definition:
+
+Collections in Java are used to store, manage, and manipulate groups of objects. The Java Collections Framework provides classes and interfaces like ArrayList, LinkedList, HashSet, and TreeSet.
+
+A HashSet is used to remove duplicate elements because it does not allow duplicate values.
+
+Java Program:
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+
+        ArrayList<String> names = new ArrayList<>();
+
+        names.add("Ram");
+        names.add("Sam");
+        names.add("John");
+        names.add("Ram");
+        names.add("Sam");
+        names.add("David");
+
+        System.out.println("Original Names: " + names);
+
+        HashSet<String> uniqueNames = new HashSet<>(names);
+
+        System.out.println("Names after removing duplicates: " + uniqueNames);
+    }
+}
+}
+
+output:
+
+Original Names: [Ram, Sam, John, Ram, Sam, David]
+
+Names after removing duplicates: [Sam, John, David, Ram]
