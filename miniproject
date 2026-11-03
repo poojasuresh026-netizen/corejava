@@ -19,19 +19,11 @@ public class JPetStoreAutomation {
         );
 
         try {
-
-            // 1. Launch browser
-            driver.manage().window().maximize();
-
-            // 2. Navigate to JPetStore
-            driver.get(
-                "https://petstore.octoperf.com/actions/Catalog.action"
-            );
-
+             driver.manage().window().maximize();
+            driver.get("https://petstore.octoperf.com/actions/Catalog.action");
             System.out.println("JPetStore launched successfully");
 
-            // 3. Select Dogs category
-            WebElement dogs = wait.until(
+                 webElement dogs = wait.until(
                 ExpectedConditions.elementToBeClickable(
                     By.xpath("//a[contains(@href,'categoryId=DOGS')]")
                 )
@@ -41,7 +33,7 @@ public class JPetStoreAutomation {
 
             System.out.println("Dogs category selected");
 
-            // 4. Select Bulldog product
+            // Select Bulldog product
             WebElement product = wait.until(
                 ExpectedConditions.elementToBeClickable(
                     By.xpath("//a[contains(normalize-space(),'Bulldog')]")
@@ -52,7 +44,7 @@ public class JPetStoreAutomation {
 
             System.out.println("Bulldog product selected");
 
-            // 5. Select first available item
+            // Select first available item
             WebElement item = wait.until(
                 ExpectedConditions.elementToBeClickable(
                     By.xpath("//a[contains(@href,'viewItem')]")
@@ -63,7 +55,7 @@ public class JPetStoreAutomation {
 
             System.out.println("Product item selected");
 
-            // 6. Add item to cart
+            //Add item to cart
             WebElement addToCart = wait.until(
                 ExpectedConditions.elementToBeClickable(
                     By.xpath("//a[contains(@href,'addItemToCart')]")
@@ -74,7 +66,7 @@ public class JPetStoreAutomation {
 
             System.out.println("Item added to shopping cart");
 
-            // 7. Verify shopping cart
+            //Verify shopping cart
             WebElement cart = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//form//table")
@@ -97,7 +89,7 @@ public class JPetStoreAutomation {
 
         } finally {
 
-            // 8. Close browser
+            
             driver.quit();
 
             System.out.println("Browser closed");
