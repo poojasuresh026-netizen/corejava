@@ -1,0 +1,79 @@
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+
+public class MouseEvents {
+
+    public static void main(String[] args) {
+
+        WebDriver driver = new ChromeDriver();
+
+        driver.manage().window().maximize();
+
+        WebDriverWait wait = new WebDriverWait(
+            driver, Duration.ofSeconds(10));
+
+        Actions actions = new Actions(driver);
+
+        try {
+
+            // Navigate to the website
+            driver.get("https://vinothqaacademy.com/mouse-event/");
+
+            // 1. Double Click
+            WebElement doubleClickButton = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                    By.xpath("//button[normalize-space()='Double Click Me']")
+                )
+            );
+
+            actions.doubleClick(doubleClickButton).perform();
+
+            System.out.println("Double Click performed successfully");
+
+            // 2. Right Click
+            WebElement rightClickButton = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                    By.xpath("//button[normalize-space()='Right Click Me']")
+                )
+            );
+
+            actions.contextClick(rightClickButton).perform();
+
+            System.out.println("Right Click performed successfully");
+
+            // 3. Drag and Drop
+            WebElement source = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//*[normalize-space()='Drag Me']")
+                )
+            );
+
+            WebElement target = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//*[normalize-space()='Drop Here']")
+                )
+            );
+
+            actions.dragAndDrop(source, target).perform();
+
+            System.out.println("Drag and Drop performed successfully");
+
+            Thread.sleep(2000);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            driver.quit();
+        }
+    }
+}
