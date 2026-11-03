@@ -1,0 +1,107 @@
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+public class JPetStoreAutomation {
+
+    public static void main(String[] args) {
+
+        WebDriver driver = new ChromeDriver();
+
+        WebDriverWait wait = new WebDriverWait(
+            driver, Duration.ofSeconds(15)
+        );
+
+        try {
+
+            // 1. Launch browser
+            driver.manage().window().maximize();
+
+            // 2. Navigate to JPetStore
+            driver.get(
+                "https://petstore.octoperf.com/actions/Catalog.action"
+            );
+
+            System.out.println("JPetStore launched successfully");
+
+            // 3. Select Dogs category
+            WebElement dogs = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                    By.xpath("//a[contains(@href,'categoryId=DOGS')]")
+                )
+            );
+
+            dogs.click();
+
+            System.out.println("Dogs category selected");
+
+            // 4. Select Bulldog product
+            WebElement product = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                    By.xpath("//a[contains(normalize-space(),'Bulldog')]")
+                )
+            );
+
+            product.click();
+
+            System.out.println("Bulldog product selected");
+
+            // 5. Select first available item
+            WebElement item = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                    By.xpath("//a[contains(@href,'viewItem')]")
+                )
+            );
+
+            item.click();
+
+            System.out.println("Product item selected");
+
+            // 6. Add item to cart
+            WebElement addToCart = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                    By.xpath("//a[contains(@href,'addItemToCart')]")
+                )
+            );
+
+            addToCart.click();
+
+            System.out.println("Item added to shopping cart");
+
+            // 7. Verify shopping cart
+            WebElement cart = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//form//table")
+                )
+            );
+
+            if (cart.isDisplayed()) {
+                System.out.println(
+                    "SUCCESS: Shopping cart is displayed"
+                );
+            }
+
+            Thread.sleep(3000);
+
+        } catch (Exception e) {
+
+            System.out.println("Automation failed: " + e.getMessage());
+
+            e.printStackTrace();
+
+        } finally {
+
+            // 8. Close browser
+            driver.quit();
+
+            System.out.println("Browser closed");
+
+        }
+    }
+}
